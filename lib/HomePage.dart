@@ -4,10 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:online_course_app_ui/style.dart';
+import 'package:online_course_app_ui/userprofile.dart';
 
+import 'courseDetails.dart';
 import 'coursemodel.dart';
 
 class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
@@ -49,7 +53,7 @@ class HomePage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (ctx) => UserProfile(),
+                          builder: (ctx) => const UserProfile(),
                         ),
                       );
                     },
@@ -96,7 +100,7 @@ class HomePage extends StatelessWidget {
                         const SizedBox(height: 20),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
+                          children: const [
                             Chips(
                               topic: "Coding",
                               isSelected: true,
@@ -114,7 +118,7 @@ class HomePage extends StatelessWidget {
                         const SizedBox(height: 20),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
+                          children: const [
                             Chips(
                               topic: "Linked Lists",
                               isSelected: false,
@@ -132,7 +136,7 @@ class HomePage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Container(
+                  SizedBox(
                       height: _height * 0.43,
                       width: _width,
                       child: Column(
@@ -167,7 +171,7 @@ class HomePage extends StatelessWidget {
 
 class Courses extends StatelessWidget {
   final Course course;
-  Courses({required this.course});
+  const Courses({Key? key, required this.course}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
@@ -223,7 +227,7 @@ class Courses extends StatelessWidget {
                 ),
               ]),
               const SizedBox(height: 10),
-              Container(
+              SizedBox(
                   width: _width * 0.5,
                   child: Text(
                     course.courseName,
@@ -246,7 +250,7 @@ class Chips extends StatelessWidget {
   final String topic;
   final bool isSelected;
 
-  Chips({required this.topic, required this.isSelected});
+  const Chips({Key? key, required this.topic, required this.isSelected}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
